@@ -2,5 +2,5 @@ export interface ITask {
   id: string;
   name: string;
   priority: number;
-  checked: boolean;
+  complete: boolean;
 }

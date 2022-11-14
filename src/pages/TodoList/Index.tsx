@@ -10,7 +10,7 @@ export const TodoList = () => {
     id: "",
     name: "",
     priority: 0,
-    checked: false,
+    complete: false,
   });
 
   const [taskList, setTaskList] = useState<ITask[]>([
@@ -18,13 +18,13 @@ export const TodoList = () => {
       id: "",
       name: "Artur",
       priority: 0,
-      checked: false,
+      complete: false,
     },
     {
       id: "",
       name: "Mascha",
       priority: 2,
-      checked: true,
+      complete: true,
     },
   ]);
 
@@ -47,14 +47,22 @@ export const TodoList = () => {
       id: "",
       name: "",
       priority: 0,
-      checked: false,
+      complete: false,
     });
   };
 
   const deleteTodoItem = (index: number) => {
-    const newTaskItems = [...taskList];
-    newTaskItems.splice(index, 1);
-    setTaskList(newTaskItems);
+    const newTaskList = [...taskList];
+    newTaskList.splice(index, 1);
+    setTaskList(newTaskList);
+  };
+
+  const completeTodoItem = (index: number) => {
+    const newTaskList = [...taskList];
+    newTaskList[index].complete === false
+      ? (newTaskList[index].complete = true)
+      : (newTaskList[index].complete = false);
+    setTaskList(newTaskList);
   };
 
   return (
@@ -65,7 +73,11 @@ export const TodoList = () => {
         sliderChangeHandler={sliderChangeHandler}
         submitHandler={submitHandler}
       />
-      <TaskList taskList={taskList} deleteTodoItem={deleteTodoItem} />
+      <TaskList
+        taskList={taskList}
+        deleteTodoItem={deleteTodoItem}
+        completeTodoItem={completeTodoItem}
+      />
     </StyledTodoList>
   );
 };

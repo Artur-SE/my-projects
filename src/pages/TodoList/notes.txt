@@ -1,7 +1,10 @@
 https://medium.com/@hayden.anderl33/build-a-full-crud-to-do-list-using-react-hooks-7a61ed09fcab
 
 - Make Feature List
-  - CRUD Todo List
+  + Create
+  + Read
+  - Update
+  + Delete
   - Sortable List by Priority & Checked attribute
 
 - Design functionality
